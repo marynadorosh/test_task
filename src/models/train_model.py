@@ -6,10 +6,9 @@ from sklearn.linear_model import LogisticRegression, SGDClassifier
 
 
 class Model:
-    def __init__(self, data_path, model_path, model_type=SGDClassifier):
+    def __init__(self, data_path, model_type=SGDClassifier):
 
         self.data_path = data_path
-        self.model_path = model_path
         self.X = np.load(os.path.join(self.data_path, 'X.npy'))
         self.y = np.load(os.path.join(self.data_path, 'Y.npy'))
         self.model_type = model_type

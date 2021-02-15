@@ -7,7 +7,6 @@ setup(
     author='Maryna Dorosh',
     license='',
     install_requires=[
-        'nltk',
         'textaugment'
     ],
 )

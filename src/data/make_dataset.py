@@ -23,7 +23,6 @@ class DataProcessing:
         self.text = data.text
         if not data.label.isnull().all():
             self.label = data.label
-        print(self.text.shape)
 
 
     def convert_to_vector(self, emb_dict):
