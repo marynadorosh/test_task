@@ -1,58 +1,31 @@
-test_task
-==============================
+# Data Scientist - Technical Assignment 
 
-A short description of the project.
+### Assignment 
+A sample of labeled search term category data is provided in the CSV file, trainSet.csv. The file contains the two columns, the search term and the search term category. The search term category has been indexed. There are 606,823 examples in the data set with 1,419 different search term categories. There are roughly 427 examples in each category. 
 
-Project Organization
-------------
+> How to run it?
+```sh
+start.sh
+```
 
-    ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
-    ├── README.md          <- The top-level README for developers using this project.
-    ├── data
-    │   ├── external       <- Data from third party sources.
-    │   ├── interim        <- Intermediate data that has been transformed.
-    │   ├── processed      <- The final, canonical data sets for modeling.
-    │   └── raw            <- The original, immutable data dump.
-    │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
-    │
-    ├── models             <- Trained and serialized models, model predictions, or model summaries
-    │
-    ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-    │                         the creator's initials, and a short `-` delimited description, e.g.
-    │                         `1.0-jqp-initial-data-exploration`.
-    │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
-    │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+My accuracy result based on cross-validation is 0.53
+
+### Preprocessing and model description
+
+* Since the dataset is imbalanced, I expanded categories, which contain less than average amount of examples, by generating new search term changing words to synonyms. 
+* Each search term was replaced by average FastText word embedding.
+* I selected Linear Support Vector Machine because it can work reasonable fast with a huge amount of data, also I tried Logistic Regression and Support Vector Machine with other kernels. 
+
+### Runtime complexity:
+* Text augmentation - O(n^2) in worse case
+* Linear Support Vector Machine - O(n)
+
+Since I selected only linear models, which can't catch non-linear dependencies and ignore word orders, the easiest way for improving is trying more a complex model like neural networks. 
 
 
---------
-
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
-# test_task
+### Possible improvements 
+* Translate a dataset in one language or create a new model for every languages
+* Define as features named entity, like countries, names, brand, etc.
+* Generate features using some user context (country, browser, previous queries, etc.)
+* Use transformer-based neural network.
+* Add logging, config, tests, more data, more models, more fun:)
