@@ -9,7 +9,6 @@ from nltk.tokenize import word_tokenize
 class DataProcessing:
 
     def __init__(self, input_path, output_path):
-
         self.input_path = input_path
         self.output_path = output_path
         self.X = None
@@ -18,7 +17,6 @@ class DataProcessing:
 
 
     def read_file(self):
-        
         data = pd.read_csv(self.input_path, names=['text', 'label'])
         self.text = data.text
         if not data.label.isnull().all():
@@ -64,7 +62,6 @@ class DataProcessing:
 
 
     def save_data(self):
-        
         np.save(os.path.join(self.output_path, 'X.npy'), self.X)
         if self.label is not None:
             np.save(os.path.join(self.output_path, 'Y.npy'), 

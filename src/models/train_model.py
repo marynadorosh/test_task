@@ -17,12 +17,10 @@ class Model:
 
 
     def create_model(self, **params):
-
         self.model = self.model_type(**params)
 
 
     def train(self):
-        
         self.model.fit(self.X, self.y)
         self.model.score(self.X, self.y)
     
