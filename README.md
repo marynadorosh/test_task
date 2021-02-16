@@ -10,6 +10,8 @@ start.sh
 
 My accuracy result based on cross-validation is 0.53
 
+candidateTestSet with predictions is here: https://github.com/marynadorosh/test_task/blob/main/data/processed/candidateTestSet.csv
+
 ### Preprocessing and model description
 
 * Since the dataset is imbalanced, I expanded categories, which contain less than average amount of examples, by generating new search term changing words to synonyms. 
